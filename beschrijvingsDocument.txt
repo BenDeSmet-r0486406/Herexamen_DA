@@ -2,8 +2,24 @@ GitHub link:
 Dockerhub Link :/
 
 Communicatie microservices:
-De Composite_omdb is de microservice die op basis van de parameter "title" een samengesteld CompositeMovie-entiteit gaat maken van de entiteiten van de microservices Review_Omdb, Recommendation_Omdb en Movie_Omdb. De CompositeMovie entiteit houd een String Movie, Review en Recommendation bij Deze variabele worden via REST request uit de 3 microservice opgehaald en samengesteld, composite houd dus zelf geen data bij.
+De Composite_omdb is de microservice die op basis van de parameter "title" een samengesteld CompositeMovie-entiteit gaat maken van de entiteiten van de microservices Review_Omdb, Recommendation_Omdb en Movie_Omdb. De CompositeMovie entiteit houd een String Movie, Review en Recommendation bij Deze variabele worden via REST request uit de 3 bovenvermelde microservices opgehaald en samengesteld, composite houd dus zelf geen data bij. De variabele binnen het CompositeMovie entiteit houden strings bij die de JSON Elementen van de variabele weergeven.
 
-Review_Omdb is een microservice die reviews van films kan bewaren, de Review entiteit is samengesteld uit een "title" (wat als id dient) en een "review" wat de inhoud van de review is. De inhoud van de review service wordt ter beschikking gesteld via een rest controller
-Recommendation_Omdb is een micro serviece die recommendations van films kan bewaren, de Recommendation entiteit is samengesteld uit "title" wat de titel vand e film is en als id dient en de recommendation wat de titel van de aanbevolen film inhoud.
-Movie_Omdb is een
+Review_Omdb is een microservice die reviews van films kan bewaren, de Review entiteit is samengesteld uit een "title" (wat als id dient) en een "review" wat de inhoud van de review is. De inhoud van de review service wordt ter beschikking gesteld via een rest controller en kan dus via een Rest request worden opgehaald
+
+Recommendation_Omdb is een micro serviece die recommendations van films kan bewaren, de Recommendation entiteit is samengesteld uit "title" wat de titel vand e film is en als id dient en de recommendation wat de titel van de aanbevolen film inhoud.De inhoud van de recommendation service wordt ter beschikking gesteld via een rest controller en kan dus via een Rest request worden opgehaald
+
+Movie_Omdb is een microservice die zowel zelf een REST service is als een REST service consummed. De Movie_omdb service houd voor elke film in zijn databank de titel (dien dient als id) de rating (wat de imdbRating van de film weergeeft) en het genre van de film bij in een lokale databank. De films uit de lokale databank kunnen opgevraagt worden via een Rest request, indien de film zich nog niet in de lokale databank bevind gaat de movie service zelf een restrequest sturen naar de Open Movie DataBase api (http://www.omdbapi.com/).
+
+De Eureka_Omdb service is eigenlijk een server waarop de andere services kunnen draaien. deze definieerd de links van de verschillende services die hierop draaien aan de hand van de beschreven naam in het bootstrap.yml document dat elke microservice bevat. Deze namen zijn belangrijk om in de Composite_Omdb service de juiste rest-requests-links te kunnen definieren.
+
+De Zuul_Omdb service is een gateway die voor de buuitenwereld dient als proxy. Dit zorgt er voor dat niet naar elke microservice moet genavigeerd worden via hun unieke link, maar dat er naar overal genavigeerd kan worden via de Zuul-poort (in dit geval 8765) en dan de gedefinieerde extensie (in dit geval /movie)
+
+loklaal opstarten:
+1. Eureka_Omdb run as java application -> EurekaOmdbApplication
+2. herhaal dit voor de andere 5 microservices.
+3. surf naar http://localhost:8761
+4. klik op de link achter zuul instance status
+5. vervang /info door /movie/info of /movie/Comp/<Titel van een film> (bv. Inception)
+
+onderscores
+docker
