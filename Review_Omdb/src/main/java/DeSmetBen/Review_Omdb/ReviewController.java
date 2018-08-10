@@ -22,7 +22,12 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("/review/getRev/{title}")
-	public Review getReview(@PathVariable("title") String title){
+	public String getReview(@PathVariable("title") String title){
+		return this.service.getRev(title).getReview();
+	}
+	
+	@RequestMapping("/review/{title}")
+	public Review Review(@PathVariable("title") String title){
 		return this.service.getRev(title);
 	}
 	

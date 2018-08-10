@@ -22,7 +22,12 @@ public class RecommandationController {
 	}
 	
 	@RequestMapping("/recommendation/getRec/{title}")
-	public Recommendation getRecommendation(@PathVariable("title") String title){
+	public String getRecommendation(@PathVariable("title") String title){
+		return this.service.getRec(title).getRecommendation();
+	}
+	
+	@RequestMapping("/recommendation/{title}")
+	public Recommendation Recommendation(@PathVariable("title") String title){
 		return this.service.getRec(title);
 	}
 	

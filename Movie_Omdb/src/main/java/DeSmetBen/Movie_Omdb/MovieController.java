@@ -27,4 +27,31 @@ public class MovieController {
 			return this.movies.getMovie(title);
 		}
 	}
+	
+	@RequestMapping("/movie/getTitle/{title}")
+	public String getTitle(@PathVariable String title) {
+		if(this.movies.getMovie(title) == null) {
+			return "this is not a movie";
+		}else {
+			return this.movies.getMovie(title).getTitle();
+		}
+	}
+	
+	@RequestMapping("/movie/getRating/{title}")
+	public String getRating(@PathVariable String title) {
+		if(this.movies.getMovie(title) == null) {
+			return "this movie has no rating";
+		}else {
+			return this.movies.getMovie(title).getRating();
+		}
+	}
+	
+	@RequestMapping("/movie/getGenre/{title}")
+	public String getGenre(@PathVariable String title) {
+		if(this.movies.getMovie(title) == null) {
+			return "this movie has no genre";
+		}else {
+			return this.movies.getMovie(title).getGenre();
+		}
+	}
 }

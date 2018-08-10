@@ -1,0 +1,43 @@
+package DeSmetBen.Composite_Omdb;
+
+public class CompositeMovie {
+	
+	private String title;
+	private String rating;
+	private String genre;
+	private String review;
+	private String recommendation;
+	
+	public CompositeMovie() {
+	}
+
+
+	public String getReview() {
+		return review;
+	}
+
+
+	public void setReview(String review) {
+		this.review = review;
+	}
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	public String getRecommendation() {
+		return recommendation;
+	}
+
+
+	public void setRecommendation(String recommendation) {
+		this.recommendation = recommendation;
+	}
+}

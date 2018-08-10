@@ -24,8 +24,14 @@ public class CompService {
 		Review review = this.restTemplate.getForObject("http://reviews/review/getRev/" + title, Review.class);
 		composite.setReview(review.getReview());*/
 		
-		String movie = this.restTemplate.getForObject("http://movies/movie/getMovie/" + title, String.class);
-		composite.setMovie(movie);
+		String movieTitle = this.restTemplate.getForObject("http://movies/movie/getTitle/" + title, String.class);
+		composite.setTitle(movieTitle);
+		
+		String movieRating = this.restTemplate.getForObject("http://movies/movie/getRating/" + title, String.class);
+		composite.setRating(movieRating);
+		
+		String movieGenre = this.restTemplate.getForObject("http://movies/movie/getGenre/" + title, String.class);
+		composite.setGenre(movieGenre);
 		
 		String rec = this.restTemplate.getForObject("http://recs/recommendation/getRec/" + title, String.class);
 		composite.setRecommendation(rec);
@@ -36,8 +42,28 @@ public class CompService {
 		return composite;
 	}
 	
+	public String getMovie(String title) {
+		String json = this.restTemplate.getForObject("http://movies/movie/getMovie/" + title, String.class);
+		return json;
+	}
+	
+	public String getRec(String title) {
+		String json = this.restTemplate.getForObject("http://recs/recommendation/" + title, String.class);
+		return json;
+	}
+	
+	public String getRev(String title) {
+		String json = this.restTemplate.getForObject("http://reviews/review/" + title, String.class);
+		return json;
+	}
+	
 	public String getRecs() {
 		String json = this.restTemplate.getForObject("http://recs/recommendation/allRecs", String.class);
+		return json;
+	}
+	
+	public String getRevs() {
+		String json = this.restTemplate.getForObject("http://reviews/review/all", String.class);
 		return json;
 	}
 }
