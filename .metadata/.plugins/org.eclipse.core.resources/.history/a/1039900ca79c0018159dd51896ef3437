@@ -1,17 +1,17 @@
 package DeSmetBen.Review_Omdb;
 
 public class Review {
-	private String title;
+	private String movie;
 	private String review;
 	
 	
-	public Review(String title, String review) {
-		this.title = title;
+	public Review(String movie, String review) {
+		this.movie = movie;
 		this.review = review;
 	}
 	
-	public String getTitle() {
-		return title;
+	public String getMovie() {
+		return movie;
 	}
 	
 	public String getReview() {

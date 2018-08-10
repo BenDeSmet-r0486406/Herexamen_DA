@@ -25,7 +25,7 @@ public class RecService {
 	public Recommendation getRec(String title){
 		Recommendation result = new Recommendation(title, "this movie has no recommendation");
 		for (Recommendation rec : recommendations) {
-			if (rec.getTitle().equals(title)) {
+			if (rec.getMovie().equals(title)) {
 				result = rec;
 			}
 		}

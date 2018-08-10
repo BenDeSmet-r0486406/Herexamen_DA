@@ -1,4 +1,4 @@
-GitHub link: 
+GitHub link: https://github.com/BenDeSmet-r0486406/Herexamen_DA.git
 Dockerhub Link :/
 
 Communicatie microservices:
@@ -14,12 +14,22 @@ De Eureka_Omdb service is eigenlijk een server waarop de andere services kunnen 
 
 De Zuul_Omdb service is een gateway die voor de buuitenwereld dient als proxy. Dit zorgt er voor dat niet naar elke microservice moet genavigeerd worden via hun unieke link, maar dat er naar overal genavigeerd kan worden via de Zuul-poort (in dit geval 8765) en dan de gedefinieerde extensie (in dit geval /movie)
 
+
+Interessante problemen:
+1. een van de interessante problemen was doordat er 3 projecten van mijn herexamens tegelijk op 10 augustus moesten worden afgegeven. Had ik geen tijd om de docker opdracht te maken. Misschien de docker opdracht zelf wel maar hiervoor was windows 10 pro nodig, waar ik niet van in de bezitting ben en voor heel mijn besturingssysteem om te gooien en mezelf een dag zonder computer te zetten was er geen tijd genoeg.
+
+2. Aangezien ik tot 31 august was aan het werken in het buitenland was er een enorme tijdsdruk waardoor ik stress had en stappe wou overslaan, hierdoor was ik onordelijke spaghetti code aan het schrijven waardoor ik er niets meer van snapte en een paar grote stukken opnieuw heb moeten doe.
+
+3. ik ben ongeveer 1,5dag verloren aan het feit dat mijn gedifinieerde links in de composite service niet werkte toch was ik zeker dat ik de naam en het pad van elke service juist had. Uiteindelijk bleek het probleem te liggen bij het feit dat ik in de bootstrap.yml onder 
+Spring : 
+	application : 
+		name: 
+een naam had gezet met een onderscore in, hierdoor werden de links niet geaccepteerd.
+
+
 loklaal opstarten:
 1. Eureka_Omdb run as java application -> EurekaOmdbApplication
 2. herhaal dit voor de andere 5 microservices.
 3. surf naar http://localhost:8761
 4. klik op de link achter zuul instance status
 5. vervang /info door /movie/info of /movie/Comp/<Titel van een film> (bv. Inception)
-
-onderscores
-docker

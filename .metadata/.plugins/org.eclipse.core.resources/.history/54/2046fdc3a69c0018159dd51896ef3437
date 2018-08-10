@@ -23,14 +23,13 @@ public class RecService {
 	}
 	
 	public Recommendation getRec(String title){
-		Recommendation result = new Recommendation(title, "this movie has no recommendation");
-		for (Recommendation rec : recommendations) {
-			if (rec.getTitle().equals(title)) {
-				result = rec;
+		for (Recommendation recommendation : recommendations) {
+			if (recommendation.getMovie().equals(title)) {
+				return recommendation;
 			}
 		}
 		
-		return result;
+		throw new IllegalArgumentException("No recommendation for this movie");
 	}
 	
 	public List<Recommendation> getAllRecs() {

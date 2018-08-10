@@ -23,13 +23,13 @@ public class RevService {
 	}
 	
 	public Review getRev(String title){
-		Review result = new Review(title, "this movie has no review");
 		for (Review rev : reviews) {
-			if (rev.getTitle().equals(title)) {
-				return result = rev;
+			if (rev.getMovie().equals(title)) {
+				return rev;
 			}
 		}
-		return result;
+		
+		throw new IllegalArgumentException("No review for this movie");
 	}
 	
 	public List<Review> getAllRevs() {

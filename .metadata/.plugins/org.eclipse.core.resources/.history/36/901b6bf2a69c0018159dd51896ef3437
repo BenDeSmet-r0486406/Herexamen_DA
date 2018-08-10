@@ -1,17 +1,17 @@
 package DeSmetBen.Recomendation_Omdb;
 
 public class Recommendation {
-	private String title;
+	private String movie;
 	private String recommendation;
 	
 	
-	public Recommendation(String title, String recommendation) {
-		this.title = title;
+	public Recommendation(String movie, String recommendation) {
+		this.movie = movie;
 		this.recommendation = recommendation;
 	}
 	
-	public String getTitle() {
-		return title;
+	public String getMovie() {
+		return movie;
 	}
 	
 	public String getRecommendation() {

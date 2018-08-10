@@ -25,7 +25,7 @@ public class RevService {
 	public Review getRev(String title){
 		Review result = new Review(title, "this movie has no review");
 		for (Review rev : reviews) {
-			if (rev.getTitle().equals(title)) {
+			if (rev.getMovie().equals(title)) {
 				return result = rev;
 			}
 		}
