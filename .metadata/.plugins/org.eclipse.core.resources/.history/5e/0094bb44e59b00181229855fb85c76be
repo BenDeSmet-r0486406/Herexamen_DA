@@ -1,0 +1,21 @@
+package DeSmetBen.Recomendation_Omdb;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RecService {
+	private List<Recommendation> recommendations;
+	
+	public RecService() {
+		recommendations = new ArrayList<Recommendation>();
+		setUp();
+	}
+	
+	private void setUp() {
+		Recommendation rec = new Recommendation("deadpool", "deadpool2");
+		recommendations.add(rec);
+		rec = new Recommendation("forrest gump", "Another great horror movie is 'The Grudge'");
+		recommendations.add(rec);
+	}
+}

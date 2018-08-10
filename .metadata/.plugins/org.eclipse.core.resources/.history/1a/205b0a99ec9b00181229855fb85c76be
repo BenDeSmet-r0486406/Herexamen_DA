@@ -1,0 +1,40 @@
+package DeSmetBen.Review_Omdb;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RevService {
+	private List<Review> reviews;
+	
+	public RevService() {
+		reviews = new ArrayList<Recommendation>();
+		
+		Review rev = new Review("deadpool", "deadpool2");
+		reviews.add(rev);
+		rev = new Review("forrest gump", "Cast away");
+		reviews.add(rev);
+		rev = new Review("step up", "step up 2");
+		reviews.add(rev);
+		rev = new Review("infinity war", "avengers");
+		reviews.add(rev);
+		rev = new Review("inception", "shutter island");
+		reviews.add(rev);
+	}
+	
+	public Recommendation getRev(String title){
+		for (Review rev : reviews) {
+			if (rev.getMovie().equals(title)) {
+				return rev;
+			}
+		}
+		
+		throw new IllegalArgumentException("No reviews for this movie");
+	}
+	
+	public List<Review> getAllRecs() {
+		return this.reviews;
+	}
+
+}
+

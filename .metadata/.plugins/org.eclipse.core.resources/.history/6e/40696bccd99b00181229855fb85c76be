@@ -1,0 +1,13 @@
+package DeSmetBen.Movie_Omdb;
+
+import org.springframework.OMDB_rest_consuming.Movie;
+import org.springframework.web.client.RestTemplate;
+
+public class MovieRequestService {
+	
+	public Movie movieRequest(String id) {
+		RestTemplate restTemplate = new RestTemplate();
+		Movie movie = restTemplate.getForObject("http://www.omdbapi.com/?apikey=fcf15e64&t", Movie.class, id);
+	}
+
+}

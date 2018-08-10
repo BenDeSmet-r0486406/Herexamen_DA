@@ -1,0 +1,35 @@
+package DeSmetBen.Movie_Omdb;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MovieDbService {
+	private Map<String, Movie> movies;
+	private MovieRequestService movieReq;
+	
+	public MovieDbService() {
+		movieReq = new MovieRequestService();
+		movies = new HashMap<>();
+		
+		Movie movie = movieReq.movieRequest("infinity+war");
+		this.addMovie(movie.getTitle());
+		movie = movieReq.movieRequest("inception");
+		this.addMovie(movie.getTitle());
+		movie = movieReq.movieRequest("deadpool");
+		this.addMovie(movie.getTitle());
+		movie = movieReq.movieRequest("step+up");
+		this.addMovie(movie.getTitle());
+		movie = movieReq.movieRequest("forrest+gump");
+		this.addMovie(movie.getTitle());
+	}
+	
+	public Movie getMovie(String title) {
+		return movies.get(title);
+	}
+	
+	public void addMovie(String title){
+		Movie movie = movieReq.movieRequest(title);
+		movies.put(movie.getTitle(), movie);
+	}
+
+}

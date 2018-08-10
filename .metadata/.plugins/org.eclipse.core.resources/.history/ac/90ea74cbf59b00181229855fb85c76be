@@ -1,0 +1,18 @@
+package DeSmetBen.Composite_Omdb;
+
+import org.springframework.web.client.RestTemplate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class CompService {
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	public CompService() {
+	}
+	
+	public CompositeMovie getAll(String title) {
+		CompositeMovie composite = new CompositeMovie();
+		return composite;
+	}
+}

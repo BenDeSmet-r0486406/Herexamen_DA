@@ -1,0 +1,12 @@
+package DeSmetBen.Movie_Omdb;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MovieOmdbApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MovieOmdbApplication.class, args);
+	}
+}

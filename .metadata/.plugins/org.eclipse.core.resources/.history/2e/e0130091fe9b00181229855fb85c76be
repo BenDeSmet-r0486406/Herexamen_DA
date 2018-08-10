@@ -1,0 +1,12 @@
+package DeSmetBen.Eureka_Omdb;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class EurekaOmdbApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EurekaOmdbApplication.class, args);
+	}
+}

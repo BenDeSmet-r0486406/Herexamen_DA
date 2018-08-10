@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="Composite_Omdb"/>
+<aop-project name="Eureka_Omdb"/>
+<aop-project name="Zuul_Omdb"/>
+<aop-project name="Recommendation_Omdb"/>
+<aop-project name="Review_Omdb"/>
+<aop-project name="Movie_Omdb"/>
+</aop-reference-model>

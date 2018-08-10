@@ -1,0 +1,12 @@
+package DeSmetBen.Composite_Omdb;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CompositeOmdbApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CompositeOmdbApplication.class, args);
+	}
+}

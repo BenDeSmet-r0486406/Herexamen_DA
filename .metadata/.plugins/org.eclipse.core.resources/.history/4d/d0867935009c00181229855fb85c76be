@@ -1,0 +1,12 @@
+package DeSmetBen.Zuul_Omdb;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ZuulOmdbApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ZuulOmdbApplication.class, args);
+	}
+}

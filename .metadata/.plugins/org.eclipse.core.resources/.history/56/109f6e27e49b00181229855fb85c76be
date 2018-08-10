@@ -1,0 +1,30 @@
+package DeSmetBen.Recomendation_Omdb;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+public class RecService {
+	@Autowired
+	private DiscoveryClient discoveryClient;
+	@Autowired
+	private RecService service;
+	
+	
+	@RequestMapping("/recommendation/get/{name}")
+	public Recommendation getRecommendation(@PathVariable String title){
+		return this.service.get(title);
+	}
+	
+	@RequestMapping("/recommendation/all")
+	public List<Recommendation> getAll(){
+		return this.service.getAll();
+	}
+}

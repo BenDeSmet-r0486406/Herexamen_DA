@@ -1,0 +1,15 @@
+package DeSmetBen.Movie_Omdb;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MovieDbService {
+	private MovieRequestService movieReq;
+	private Map<String, Movie> movies;
+	
+	public MovieDbService() {
+		movieReq = new MovieRequestService();
+		movies = new HashMap<>();
+	}
+
+}

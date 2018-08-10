@@ -1,0 +1,34 @@
+package DeSmetBen.Composite_Omdb;
+
+import org.springframework.web.client.RestTemplate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class CompService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	public CompService() {
+	}
+	
+	public CompositeMovie getAll(String title) {
+		CompositeMovie composite = new CompositeMovie();
+		
+		Movie movie = this.restTemplate.getForObject("http://movies/movie/getMovie/" + title, Movie.class);
+		composite.setMovie(movie);
+		
+		movie = this.restTemplate.getForObject("http://recs/recommendation/getRec/" + title, String.class);
+		composite.setRecommendation(movie);
+		
+		movie = this.restTemplate.getForObject("http://reviews/review/getRev/" + title, String.class);
+		composite.setReview(movie);
+		
+		return composite;
+	}
+	
+	public String getRecs() {
+		String json = this.restTemplate.getForObject("http://recs/recommendation/allRecs", String.class);
+		return json;
+	}
+}

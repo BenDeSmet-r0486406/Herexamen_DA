@@ -1,0 +1,23 @@
+package DeSmetBen.Composite_Omdb;
+
+import org.springframework.web.client.RestTemplate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class CompService {
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	public CompService() {
+	}
+	
+	public CompositeMovie getAll(String title) {
+		CompositeMovie composite = new CompositeMovie();
+		
+		String url = String.format("http://film-service/film/getfilm/%s", movie);
+		String response = this.restTemplate.getForObject(url, String.class);
+		composite.setMovie(response);
+		
+		return composite;
+	}
+}

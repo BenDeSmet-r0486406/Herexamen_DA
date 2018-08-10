@@ -1,0 +1,9 @@
+GitHub link: 
+Dockerhub Link :/
+
+Communicatie microservices:
+De Composite_omdb is de microservice die op basis van de parameter "title" een samengesteld CompositeMovie-entiteit gaat maken van de entiteiten van de microservices Review_Omdb, Recommendation_Omdb en Movie_Omdb. De CompositeMovie entiteit houd een String Movie, Review en Recommendation bij Deze variabele worden via REST request uit de 3 microservice opgehaald en samengesteld, composite houd dus zelf geen data bij.
+
+Review_Omdb is een microservice die reviews van films kan bewaren, de Review entiteit is samengesteld uit een "title" (wat als id dient) en een "review" wat de inhoud van de review is. De inhoud van de review service wordt ter beschikking gesteld via een rest controller
+Recommendation_Omdb is een micro serviece die recommendations van films kan bewaren, de Recommendation entiteit is samengesteld uit "title" wat de titel vand e film is en als id dient en de recommendation wat de titel van de aanbevolen film inhoud.
+Movie_Omdb is een

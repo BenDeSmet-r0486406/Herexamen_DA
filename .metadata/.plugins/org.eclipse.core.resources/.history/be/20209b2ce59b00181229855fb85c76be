@@ -1,0 +1,10 @@
+package DeSmetBen.Recomendation_Omdb;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RecService {
+	private List<Recommendation> recommendations;
+	
+}

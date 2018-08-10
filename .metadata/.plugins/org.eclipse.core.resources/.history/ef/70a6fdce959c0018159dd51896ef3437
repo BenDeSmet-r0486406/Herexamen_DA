@@ -1,0 +1,32 @@
+package DeSmetBen.Composite_Omdb;
+
+public class Recommendation {
+	public void setMovie(String movie) {
+		this.movie = movie;
+	}
+
+	public void setRecommendation(String recommendation) {
+		this.recommendation = recommendation;
+	}
+
+	private String movie;
+	private String recommendation;
+	
+	
+	public Recommendation(String movie, String recommendation) {
+		this.movie = movie;
+		this.recommendation = recommendation;
+	}
+	
+	public Recommendation() {
+		
+	}
+	
+	public String getMovie() {
+		return movie;
+	}
+	
+	public String getRecommendation() {
+		return recommendation;
+	}
+}

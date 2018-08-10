@@ -1,0 +1,29 @@
+package DeSmetBen.Recomendation_Omdb;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RecService {
+	private List<Recommendation> recommendations;
+	
+	public RecService() {
+		recommendations = new ArrayList<Recommendation>();
+		
+		Recommendation rec = new Recommendation("deadpool", "deadpool2");
+		recommendations.add(rec);
+		rec = new Recommendation("forrest gump", "Cast away");
+		recommendations.add(rec);
+	}
+	
+	public Recommendation getRec(String title){
+		for (Recommendation recommendation : recommendations) {
+			if (recommendation.getMovie().equals(title)) {
+				return recommendation;
+			}
+		}
+		
+		throw new IllegalArgumentException("No recommendation for this movie");
+	}
+}
+
